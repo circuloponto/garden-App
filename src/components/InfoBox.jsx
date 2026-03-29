@@ -522,22 +522,6 @@ const InfoBox = ({ selectedRoot, selectedChords, chordTypes, chordRootOffsets, o
 
   return (
     <div className={`infoBoxWrapper ${selectedChords.length === 2 ? '' : 'hidden'}`}>
-      {/* Expanded trichord display - positioned to the left of the info box */}
-      {activeTrichord && (() => {
-        const svgUrl = getTrichordSvg(activeTrichord);
-        return svgUrl && (
-          <div className={styles.trichordExpandedPanel} onClick={(e) => e.stopPropagation()}>
-            <SvgComponent
-              src={svgUrl}
-              className={`${styles.trichordExpandedSvg} trichord`}
-              trichordColor={firstChordColor}
-              electronColor={electronColor}
-              alt={`Trichord ${activeTrichord}`}
-              style={{ filter: 'none !important', boxShadow: 'none !important' }}
-            />
-          </div>
-        );
-      })()}
       <div className="infoBox">
         {/* Trichords section - always at the top when chords are selected */}
         {selectedChords && selectedChords.length > 0 && (() => {
